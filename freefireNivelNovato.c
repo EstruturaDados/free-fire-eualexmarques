@@ -81,21 +81,7 @@ void listarItens(Item mochila[], int quantidade){
 
    
 }
-//Buscando item especifico 
-void buscarItem(Item mochila[], int quantidade){
-    char nomeBuscar[30];
-    printf("Digite o nome do item para buscar: ");
-    scanf("%[^\n]", nomeBuscar);
-    for (int i = 0; i < quantidade; i++){
-        if (strcmp(mochila[i].nome, nomeBuscar) == 0){
-            printf("Item encontrado.\n");
-            printf("Nome: %s | Tipo: %s | Quantidade: %d\n", mochila[i].nome, mochila[i].tipo, mochila[i].quantidade);
-            return;
-        }
-        
-    }
-    printf("Item \"%s\" não encontrado na mochila.\n", nomeBuscar);
-}
+
 
 int main() {
 
@@ -109,7 +95,6 @@ int main() {
         printf("1. Inserir item\n");
         printf("2. Remover item\n");
         printf("3. Listar itens\n");
-        printf("4. Buscar item\n");
         printf("0. Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
@@ -124,9 +109,6 @@ int main() {
                 break;
             case 3:
                 listarItens(mochila, quantidade);
-                break;
-            case 4:
-                buscarItem(mochila, quantidade);
                 break;
             case 0:
                 printf("Saindo...\n");
