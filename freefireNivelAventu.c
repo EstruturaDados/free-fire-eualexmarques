@@ -65,18 +65,6 @@ int buscarSequencialVetor(char nome[]) {
     return -1;
 }
 
-void ordenarVetor() {
-    for (int i = 0; i < totalItensVetor - 1; i++) {
-        for (int j = 0; j < totalItensVetor - i - 1; j++) {
-            if (strcmp(mochilaVetor[j].nome, mochilaVetor[j + 1].nome) > 0) {
-                Item temp = mochilaVetor[j];
-                mochilaVetor[j] = mochilaVetor[j + 1];
-                mochilaVetor[j + 1] = temp;
-            }
-        }
-    }
-    printf("Itens ordenados.\n");
-}
 
 int buscarBinariaVetor(char nome[]) {
     comparacoesBinariaVetor = 0;
@@ -177,8 +165,7 @@ void menu() {
         printf("2 - Remover\n");
         printf("3 - Listar\n");
         printf("4 - Buscar Sequencial\n");
-        printf("5 - Ordenar (vetor)\n");
-        printf("6 - Buscar Binária (vetor)\n");
+        printf("5 - Buscar Binária (vetor)\n");
         printf("0 - Sair\n");
         printf("Escolha opção: ");
         scanf("%d", &escolha);
@@ -230,17 +217,6 @@ void menu() {
                 break;
 
             case 5:
-                if (estrutura == 1) {
-                    inicio = clock();
-                    ordenarVetor();
-                    fim = clock();
-                    mostrarTempo(inicio, fim, "ordenação");
-                } else {
-                    printf("Ordenação não disponível para lista encadeada.\n");
-                }
-                break;
-
-            case 6:
                 if (estrutura == 1) {
                     printf("Nome do item a buscar: "); fgets(nomeBusca, 30, stdin); nomeBusca[strcspn(nomeBusca, "\n")] = '\0';
                     inicio = clock();
